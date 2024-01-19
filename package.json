@@ -1,0 +1,18 @@
+{
+  "name": "plantyoffoodapi_node",
+  "version": "1.0.0",
+  "description": "API JSON RESTful project with Node.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.0",
+    "nodemon": "^3.0.3"
+  }
+}
