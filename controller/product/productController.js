@@ -1,4 +1,4 @@
-const { Product, productJoiSchema } = require("../models/productSchema");
+const { Product, productJoiSchema } = require("../../models/productSchema");
 const {
   validateRequestFunction,
   handleError,
@@ -57,7 +57,7 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-const getProduct = async (req, res) => {
+const getProducts = async (req, res) => {
   try {
     if (req.params.id) {
       const idValidationFailed = isIDValid(req.params.id, res);
@@ -77,4 +77,4 @@ const getProduct = async (req, res) => {
   }
 };
 
-module.exports = { postProduct, putProduct, deleteProduct, getProduct };
+module.exports = { postProduct, putProduct, deleteProduct, getProducts };

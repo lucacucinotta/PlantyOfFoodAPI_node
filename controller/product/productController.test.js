@@ -1,11 +1,11 @@
 const request = require("supertest");
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Types;
-const app = require("../app");
-const { Product } = require("../models/productSchema");
+const app = require("../../app");
+const { Product } = require("../../models/productSchema");
 
-jest.mock("../models/productSchema", () => {
-  const originalModel = jest.requireActual("../models/productSchema");
+jest.mock("../../models/productSchema", () => {
+  const originalModel = jest.requireActual("../../models/productSchema");
   return {
     ...originalModel,
     Product: {
@@ -16,6 +16,7 @@ jest.mock("../models/productSchema", () => {
       findById: jest.fn(),
       findByIdAndDelete: jest.fn(),
       find: jest.fn(),
+      exists: jest.fn(),
     },
   };
 });
@@ -181,7 +182,7 @@ describe("PUT /api/product/:id", () => {
       name: "Existing Product",
     };
 
-    Product.findById.mockResolvedValue(existingProduct);
+    Product.exists.mockResolvedValue(existingProduct);
     Product.findByIdAndUpdate.mockRejectedValue({ code: 11000 });
 
     const updatedProduct = {
@@ -308,8 +309,11 @@ describe("DELETE /api/product/:id", () => {
 
 describe("GET /api/products/:id?", () => {
   describe("GET /api/products", () => {
-    test("should return 200 for successful research without params", async () => {
-      const products = [{ _id: new ObjectId().toString(), name: "Product 1" }];
+    test("should return 200 for successful research", async () => {
+      const products = [
+        { _id: new ObjectId().toString(), name: "Product 1" },
+        { _id: new ObjectId().toString(), name: "Product 2" },
+      ];
       Product.find.mockResolvedValue(products);
 
       const response = await request(app).get("/api/products").expect(200);
@@ -327,7 +331,7 @@ describe("GET /api/products/:id?", () => {
     });
   });
   describe("GET /api/products/:id", () => {
-    test("should return 200 for successful research with params", async () => {
+    test("should return 200 for successful research", async () => {
       const product = {
         _id: new ObjectId().toString(),
         name: "Product",
@@ -344,10 +348,13 @@ describe("GET /api/products/:id?", () => {
     });
     test("should return 404 for no one product found", async () => {
       const _id = new ObjectId().toString();
+
       Product.findById.mockResolvedValue(null);
+
       const response = await request(app)
         .get(`/api/products/${_id}`)
         .expect(404);
+
       expect(response.body.errorMessage).toBeTruthy();
       expect(response.body.errorMessage).toContain(
         `Cannot find any product with this id : ${_id}`

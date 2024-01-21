@@ -8,9 +8,9 @@ const validateRequestFunction = (joiSchema, req, res) => {
 
 const handleError = (res, err) => {
   if (err.code === 11000) {
-    return res
-      .status(409)
-      .json({ errorMessage: "This product has already been inserted." });
+    return res.status(409).json({
+      errorMessage: "This product has already been inserted.",
+    });
   }
   console.error(err);
   res.status(500).json({ errorMessage: err.message });
