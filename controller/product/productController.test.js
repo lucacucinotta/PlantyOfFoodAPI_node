@@ -47,6 +47,7 @@ describe("POST /api/product", () => {
 
   test("should return 409 if product already exists", async () => {
     const existingProduct = {
+      _id: new ObjectId().toString(),
       name: "product",
     };
 
@@ -151,7 +152,7 @@ describe("PUT /api/product/:id", () => {
       .send(newProductData)
       .expect(200);
 
-    expect(response.body.name).toBe(newProductData.name);
+    expect(response.body.name).toEqual(newProductData.name);
     expect(Product.findByIdAndUpdate).toHaveBeenCalledWith(
       existingProduct._id,
       newProductData,

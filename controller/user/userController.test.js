@@ -34,7 +34,7 @@ describe("POST /api/user", () => {
     };
 
     User.create.mockResolvedValue({
-      _id: "someid",
+      _id: new ObjectId().toString(),
       name: userData.name,
       lastName: userData.lastName,
       email: userData.email,
@@ -45,11 +45,18 @@ describe("POST /api/user", () => {
       .send(userData)
       .expect(201);
 
-    expect(response.body.name).toBe(userData.name);
+    expect(response.body.name).toEqual(userData.name);
     expect(User.create).toHaveBeenCalledWith(userData);
   });
   test("should return 409 if user's email already exists", async () => {
     const existingUser = {
+      _id: new ObjectId().toString(),
+      name: "name",
+      lastName: "lastname",
+      email: "existing@email.com",
+    };
+
+    const newUser = {
       name: "name",
       lastName: "lastname",
       email: "existing@email.com",
@@ -60,7 +67,7 @@ describe("POST /api/user", () => {
 
     const response = await request(app)
       .post("/api/user")
-      .send(existingUser)
+      .send(newUser)
       .expect(409);
 
     expect(response.body.errorMessage).toBeTruthy();
@@ -287,7 +294,6 @@ describe("POST /api/user", () => {
   });
 });
 
-//---------------------------------------------------------------
 describe("PUT /api/user/:id", () => {
   test("should return 200 for successful update", async () => {
     const existingUser = {
@@ -311,7 +317,7 @@ describe("PUT /api/user/:id", () => {
       .send(newUserData)
       .expect(200);
 
-    expect(response.body.name).toBe(newUserData.name);
+    expect(response.body.name).toEqual(newUserData.name);
     expect(User.findByIdAndUpdate).toHaveBeenCalledWith(
       existingUser._id,
       newUserData,

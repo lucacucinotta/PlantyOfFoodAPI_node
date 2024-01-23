@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const capitalizedFirstLetter = require("./utils");
+const { capitalizedFirstLetter } = require("./utils");
 
 const userMongooseSchema = mongoose.Schema(
   {
