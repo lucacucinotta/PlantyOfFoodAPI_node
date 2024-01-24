@@ -1,6 +1,4 @@
-<div align="center"><img src="https://i.postimg.cc/XXSsddTW/00bbae71-d70d-4356-9a74-acd235163c27-removebg-preview.png" width="200px">
-<h1 align="center">Planty Of Food API</h1>
-</div>
+<h1 align="center">🥦 Planty Of Food API</h1>
 
 ## 🗂️ Table of contents
 
