@@ -1,4 +1,4 @@
-<div align="center"><img src="https://i.postimg.cc/XXSsddTW/00bbae71-d70d-4356-9a74-acd235163c27-removebg-preview.png" width="150px">
+<div align="center"><img src="https://i.postimg.cc/XXSsddTW/00bbae71-d70d-4356-9a74-acd235163c27-removebg-preview.png" width="200px">
 <h1 align="center">Planty Of Food API</h1>
 </div>
 
@@ -8,7 +8,7 @@
   - [Requirements](#requirements)
 - [Technologies](#technologies)
   - [Framework and libraries](#framework-and-libraries)
-- [Instructions](#istructions)
+- [Instructions](#instructions)
 - [API](#api)
 - [Author](#author)
 
@@ -109,8 +109,8 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 
 | Method | Endpoint       | Result                                        |
 | ------ | -------------- | --------------------------------------------- |
+| GET    | api/orders/    | Show all orders                               |
 | GET    | api/orders/:id | Show the only one order that matches the ID   |
-| GET    | api/orders     | Show all orders                               |
 | POST   | api/order      | Create a new order                            |
 | PUT    | api/order/:id  | Modify the existing order that matches the ID |
 | DELETE | api/order/:id  | Delete the existing order that matches the ID |
