@@ -1,4 +1,6 @@
+<div align="center"><img src="https://i.postimg.cc/XXSsddTW/00bbae71-d70d-4356-9a74-acd235163c27-removebg-preview.png" width="150px">
 <h1 align="center">Planty Of Food API</h1>
+</div>
 
 ## 🗂️ Table of contents
 
@@ -67,7 +69,7 @@ We have the flexibility to choose between to using a relational database like My
 Create an account on [MongoDb Atlas](https://www.mongodb.com/it-it/cloud/atlas/register) or install [MongoDb Compass](https://www.mongodb.com/try/download/compass) and create an .env file like this :
 
 ```bash
-PORT=insert here the port's number of your server
+PORT=insert here the port number of your server
 DATABASE=insert here the URI of your DB
 ```
 
