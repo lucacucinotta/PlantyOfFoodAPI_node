@@ -87,7 +87,9 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 
 ## 🚀 API
 
-### Product
+### Endpoints
+
+#### Product
 
 | Method | Endpoint          | Result                                                |
 | ------ | ----------------- | ----------------------------------------------------- |
@@ -96,7 +98,7 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 | PUT    | api/product/:id   | Modify the existing product that matches the ID       |
 | DELETE | api/product/:id   | Delete the existing product that matches the ID       |
 
-### User
+#### User
 
 | Method | Endpoint       | Result                                             |
 | ------ | -------------- | -------------------------------------------------- |
@@ -105,23 +107,122 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 | PUT    | api/user/:id   | Modify the existing user that matches the ID       |
 | DELETE | api/user/:id   | Delete the existing user that matches the ID       |
 
-### Order
+#### Order
 
 | Method | Endpoint       | Result                                        |
 | ------ | -------------- | --------------------------------------------- |
-| GET    | api/orders/    | Show all orders                               |
+| GET    | api/orders     | Show all orders                               |
 | GET    | api/orders/:id | Show the only one order that matches the ID   |
 | POST   | api/order      | Create a new order                            |
 | PUT    | api/order/:id  | Modify the existing order that matches the ID |
 | DELETE | api/order/:id  | Delete the existing order that matches the ID |
 
-#### Order - Filters
+##### Order - Filters
 
 | Method | Endpoint                     | Result                              |
 | ------ | ---------------------------- | ----------------------------------- |
 | GET    | api/orders?date=YYYY-MM-DD   | Show orders filtered by date        |
 | GET    | api/orders?product=productID | Show orders with a specific product |
 | GET    | api/order?user=userID        | Show orders made by a specific user |
+
+### Usage
+
+#### Product
+
+You can get the entire list of products or get a specific product with his ID with a `GET` request :
+
+`GET /api/products` or `GET /api/products/:id`
+
+You can add a new product with a `POST` request:
+
+`POST /api/product`
+
+```bash
+{
+  "name":"product's name"
+}
+```
+
+You can modify an existing product with a `PUT` request:
+
+`PUT /api/product/:id`
+
+```bash
+{
+  "name":"new product's name"
+}
+```
+
+You can delete an existing product with a `DELETE` request:
+
+`DELETE /api/product/:id`
+
+#### User
+
+You can get the entire list of users or get a specific user with his ID with a `GET` request :
+
+`GET /api/users` or `GET /api/users/:id`
+
+You can add a new user with a `POST` request:
+
+`POST /api/user`
+
+```bash
+{
+  "name":"user's name",
+  "lastName":"user's last name",
+  "email":"user's email"
+}
+```
+
+You can modify an existing user with a `PUT` request:
+
+`PUT /api/user/:id`
+
+```bash
+{
+  "email":"new user's email"
+}
+```
+
+You can delete an existing user with a `DELETE` request:
+
+`DELETE /api/user/:id`
+
+#### Order
+
+You can get the entire list of orders or get a specific order with his ID with a `GET` request :
+
+`GET /api/orders` or `GET /api/orders/:id`
+
+You can also get a specific order with a query :
+
+`GET /api/orders?date=YYYY-MM-DD` or `GET /api/orders?product=productId` or `GET /api/orders?user=userID`
+
+You can add a new order with a `POST` request:
+
+`POST /api/order`
+
+```bash
+{
+  "products":["product's id"],
+  "users":["user's id"]
+}
+```
+
+You can modify an existing order with a `PUT` request:
+
+`PUT /api/order/:id`
+
+```bash
+{
+  "products":["new product's ID"]
+}
+```
+
+You can delete an existing order with a `DELETE` request:
+
+`DELETE /api/order/:id`
 
 ## 👤 Author
 
