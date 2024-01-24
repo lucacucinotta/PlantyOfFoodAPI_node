@@ -6,7 +6,6 @@ const {
   getOrder,
   getOrders,
 } = require("../controller/order/orderController");
-const { get } = require("mongoose");
 
 const router = express.Router();
 
