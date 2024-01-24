@@ -56,15 +56,15 @@ We have the flexibility to choose between to using a relational database like My
 
 ## ❗Instructions
 
-1. **Clone the repository:**
+**1. Clone the repository:**
 
 `git clone https://github.com/lucacucinotta/PlantyOfFoodAPI_node.git`
 
-2. **Install the dependencies:**
+**2. Install the dependencies:**
 
 `npm install`
 
-3. **Create a .env file:**
+**3. Create a .env file:**
 
 Create an account on [MongoDb Atlas](https://www.mongodb.com/it-it/cloud/atlas/register) or install [MongoDb Compass](https://www.mongodb.com/try/download/compass) and create an .env file like this :
 
@@ -73,7 +73,7 @@ PORT=insert here the port number of your server
 DATABASE=insert here the URI of your DB
 ```
 
-4. **Start the server:**
+**4. Start the server:**
 
 `npm start`
 
@@ -81,7 +81,7 @@ or, if you prefer to use Nodemon to have a server that updates automatically, ty
 
 `npm run dev`
 
-5. **Test it:**
+**5. Test it:**
 
 You can use a client for your test, like [Postman](https://www.postman.com/).
 

@@ -61,7 +61,7 @@ const putOrder = async (req, res) => {
     if (orderError) return;
 
     const populateOrder = await Order.findById(order._id).populate(
-      "products users "
+      "products users"
     );
     res.status(200).json(populateOrder);
   } catch (err) {
