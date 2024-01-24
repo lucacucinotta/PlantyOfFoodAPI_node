@@ -98,12 +98,12 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 
 ### User
 
-| Method | Endpoint        | Result                                             |
-| ------ | --------------- | -------------------------------------------------- |
-| GET    | api/users/:id?  | Show all users or the only one that matches the ID |
-| POST   | api/product     | Create a new user                                  |
-| PUT    | api/product/:id | Modify the existing user that matches the ID       |
-| DELETE | api/product/:id | Delete the existing user that matches the ID       |
+| Method | Endpoint       | Result                                             |
+| ------ | -------------- | -------------------------------------------------- |
+| GET    | api/users/:id? | Show all users or the only one that matches the ID |
+| POST   | api/user       | Create a new user                                  |
+| PUT    | api/user/:id   | Modify the existing user that matches the ID       |
+| DELETE | api/user/:id   | Delete the existing user that matches the ID       |
 
 ### Order
 
