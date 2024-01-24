@@ -127,7 +127,7 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 
 ### Usage
 
-#### Product
+#### **Product**
 
 You can get the entire list of products or get a specific product with his ID with a `GET` request :
 
@@ -157,7 +157,7 @@ You can delete an existing product with a `DELETE` request:
 
 `DELETE /api/product/:id`
 
-#### User
+#### **User**
 
 You can get the entire list of users or get a specific user with his ID with a `GET` request :
 
@@ -189,7 +189,7 @@ You can delete an existing user with a `DELETE` request:
 
 `DELETE /api/user/:id`
 
-#### Order
+#### **Order**
 
 You can get the entire list of orders or get a specific order with his ID with a `GET` request :
 
