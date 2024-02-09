@@ -91,18 +91,18 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 | Method | Endpoint          | Result                                                |
 | ------ | ----------------- | ----------------------------------------------------- |
 | GET    | api/products/:id? | Show all products or the only one that matches the ID |
-| POST   | api/product       | Create a new product                                  |
-| PUT    | api/product/:id   | Modify the existing product that matches the ID       |
-| DELETE | api/product/:id   | Delete the existing product that matches the ID       |
+| POST   | api/products      | Create a new product                                  |
+| PUT    | api/products/:id  | Modify the existing product that matches the ID       |
+| DELETE | api/products/:id  | Delete the existing product that matches the ID       |
 
 #### User
 
 | Method | Endpoint       | Result                                             |
 | ------ | -------------- | -------------------------------------------------- |
 | GET    | api/users/:id? | Show all users or the only one that matches the ID |
-| POST   | api/user       | Create a new user                                  |
-| PUT    | api/user/:id   | Modify the existing user that matches the ID       |
-| DELETE | api/user/:id   | Delete the existing user that matches the ID       |
+| POST   | api/users      | Create a new user                                  |
+| PUT    | api/users/:id  | Modify the existing user that matches the ID       |
+| DELETE | api/users/:id  | Delete the existing user that matches the ID       |
 
 #### Order
 
@@ -110,9 +110,9 @@ You can use a client for your test, like [Postman](https://www.postman.com/).
 | ------ | -------------- | --------------------------------------------- |
 | GET    | api/orders     | Show all orders                               |
 | GET    | api/orders/:id | Show the only one order that matches the ID   |
-| POST   | api/order      | Create a new order                            |
-| PUT    | api/order/:id  | Modify the existing order that matches the ID |
-| DELETE | api/order/:id  | Delete the existing order that matches the ID |
+| POST   | api/orders     | Create a new order                            |
+| PUT    | api/orders/:id | Modify the existing order that matches the ID |
+| DELETE | api/orders/:id | Delete the existing order that matches the ID |
 
 ##### Order - Filters
 
@@ -132,7 +132,7 @@ You can get the entire list of products or get a specific product with his ID wi
 
 You can add a new product with a `POST` request:
 
-`POST /api/product`
+`POST /api/products`
 
 ```bash
 {
@@ -142,7 +142,7 @@ You can add a new product with a `POST` request:
 
 You can modify an existing product with a `PUT` request:
 
-`PUT /api/product/:id`
+`PUT /api/products/:id`
 
 ```bash
 {
@@ -152,7 +152,7 @@ You can modify an existing product with a `PUT` request:
 
 You can delete an existing product with a `DELETE` request:
 
-`DELETE /api/product/:id`
+`DELETE /api/products/:id`
 
 #### **User**
 
@@ -162,7 +162,7 @@ You can get the entire list of users or get a specific user with his ID with a `
 
 You can add a new user with a `POST` request:
 
-`POST /api/user`
+`POST /api/users`
 
 ```bash
 {
@@ -174,7 +174,7 @@ You can add a new user with a `POST` request:
 
 You can modify an existing user with a `PUT` request:
 
-`PUT /api/user/:id`
+`PUT /api/users/:id`
 
 ```bash
 {
@@ -184,7 +184,7 @@ You can modify an existing user with a `PUT` request:
 
 You can delete an existing user with a `DELETE` request:
 
-`DELETE /api/user/:id`
+`DELETE /api/users/:id`
 
 #### **Order**
 
@@ -198,7 +198,7 @@ You can also get a specific order with a query :
 
 You can add a new order with a `POST` request:
 
-`POST /api/order`
+`POST /api/orders`
 
 ```bash
 {
@@ -209,7 +209,7 @@ You can add a new order with a `POST` request:
 
 You can modify an existing order with a `PUT` request:
 
-`PUT /api/order/:id`
+`PUT /api/orders/:id`
 
 ```bash
 {
@@ -219,7 +219,7 @@ You can modify an existing order with a `PUT` request:
 
 You can delete an existing order with a `DELETE` request:
 
-`DELETE /api/order/:id`
+`DELETE /api/orders/:id`
 
 ## 👤 Author
 

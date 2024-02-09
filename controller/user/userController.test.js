@@ -25,7 +25,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe("POST /api/user", () => {
+describe("POST /api/users", () => {
   test("should return 201 for user created", async () => {
     const userData = {
       name: "name",
@@ -41,7 +41,7 @@ describe("POST /api/user", () => {
     });
 
     const response = await request(app)
-      .post("/api/user")
+      .post("/api/users")
       .send(userData)
       .expect(201);
 
@@ -66,7 +66,7 @@ describe("POST /api/user", () => {
     User.create.mockRejectedValue({ code: 11000 });
 
     const response = await request(app)
-      .post("/api/user")
+      .post("/api/users")
       .send(newUser)
       .expect(409);
 
@@ -84,7 +84,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -101,7 +101,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -118,7 +118,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -135,7 +135,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -152,7 +152,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -169,7 +169,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -185,7 +185,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -199,7 +199,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -215,7 +215,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -230,7 +230,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -247,7 +247,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -264,7 +264,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -282,7 +282,7 @@ describe("POST /api/user", () => {
       };
 
       const response = await request(app)
-        .post("/api/user")
+        .post("/api/users")
         .send(invalidUserData)
         .expect(400);
 
@@ -294,7 +294,7 @@ describe("POST /api/user", () => {
   });
 });
 
-describe("PUT /api/user/:id", () => {
+describe("PUT /api/users/:id", () => {
   test("should return 200 for successful update", async () => {
     const existingUser = {
       _id: new ObjectId().toString(),
@@ -313,7 +313,7 @@ describe("PUT /api/user/:id", () => {
     });
 
     const response = await request(app)
-      .put(`/api/user/${existingUser._id}`)
+      .put(`/api/users/${existingUser._id}`)
       .send(newUserData)
       .expect(200);
 
@@ -334,7 +334,7 @@ describe("PUT /api/user/:id", () => {
     User.findByIdAndUpdate.mockResolvedValue(null);
 
     const response = await request(app)
-      .put(`/api/user/${_id}`)
+      .put(`/api/users/${_id}`)
       .send(updateData)
       .expect(404);
 
@@ -359,7 +359,7 @@ describe("PUT /api/user/:id", () => {
     User.findByIdAndUpdate.mockRejectedValue({ code: 11000 });
 
     const response = await request(app)
-      .put(`/api/user/${new ObjectId().toString()}`)
+      .put(`/api/users/${new ObjectId().toString()}`)
       .send(updateData)
       .expect(409);
 
@@ -375,7 +375,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -390,7 +390,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -405,7 +405,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -420,7 +420,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -435,7 +435,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -450,7 +450,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -466,7 +466,7 @@ describe("PUT /api/user/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/user/${new ObjectId().toString()}`)
+        .put(`/api/users/${new ObjectId().toString()}`)
         .send(invalidUserData)
         .expect(400);
 
@@ -476,7 +476,7 @@ describe("PUT /api/user/:id", () => {
       );
     });
     test("should return 400 for invalid ID", async () => {
-      const response = await request(app).put("/api/user/123").expect(400);
+      const response = await request(app).put("/api/users/123").expect(400);
 
       expect(response.body.errorMessage).toBeTruthy();
       expect(response.body.errorMessage).toContain(
@@ -486,7 +486,7 @@ describe("PUT /api/user/:id", () => {
   });
 });
 
-describe("DELETE /api/user", () => {
+describe("DELETE /api/users", () => {
   test("should return 201 for successfull deletion", async () => {
     const existingUser = {
       _id: new ObjectId().toString(),
@@ -498,7 +498,7 @@ describe("DELETE /api/user", () => {
     User.findByIdAndDelete.mockResolvedValue(existingUser);
 
     const response = await request(app)
-      .delete(`/api/user/${existingUser._id}`)
+      .delete(`/api/users/${existingUser._id}`)
       .expect(200);
 
     expect(response.body.name).toBe(existingUser.name);
@@ -507,7 +507,7 @@ describe("DELETE /api/user", () => {
     const _id = new ObjectId().toString();
     User.findByIdAndDelete.mockResolvedValue(null);
 
-    const response = await request(app).delete(`/api/user/${_id}`).expect(404);
+    const response = await request(app).delete(`/api/users/${_id}`).expect(404);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(
@@ -515,7 +515,7 @@ describe("DELETE /api/user", () => {
     );
   });
   test("should return 400 for invalid ID", async () => {
-    const response = await request(app).delete("/api/user/123").expect(400);
+    const response = await request(app).delete("/api/users/123").expect(400);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(

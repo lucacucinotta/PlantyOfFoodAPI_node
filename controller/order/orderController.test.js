@@ -46,7 +46,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe("POST /api/order", () => {
+describe("POST /api/orders", () => {
   test("should return 201 for create a new order", async () => {
     const _id = new ObjectId().toString();
     const mockOrderData = {
@@ -85,7 +85,7 @@ describe("POST /api/order", () => {
     }));
 
     const response = await request(app)
-      .post("/api/order")
+      .post("/api/orders")
       .send(mockOrderData)
       .expect(201);
 
@@ -102,7 +102,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -117,7 +117,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -136,7 +136,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -152,7 +152,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -171,7 +171,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -187,7 +187,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -204,7 +204,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -223,7 +223,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -239,7 +239,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -256,7 +256,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -273,7 +273,7 @@ describe("POST /api/order", () => {
         };
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(invalidOrderData)
           .expect(400);
 
@@ -295,7 +295,7 @@ describe("POST /api/order", () => {
         User.exists.mockResolvedValue(true);
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(mockOrderData)
           .expect(400);
 
@@ -314,7 +314,7 @@ describe("POST /api/order", () => {
         User.exists.mockResolvedValue(false);
 
         const response = await request(app)
-          .post("/api/order")
+          .post("/api/orders")
           .send(mockOrderData)
           .expect(400);
 
@@ -327,7 +327,7 @@ describe("POST /api/order", () => {
   });
 });
 
-describe("PUT /api/order/:id", () => {
+describe("PUT /api/orders/:id", () => {
   test("should return 200 for successful update", async () => {
     const existingOrder = {
       _id: new ObjectId().toString(),
@@ -371,7 +371,7 @@ describe("PUT /api/order/:id", () => {
     }));
 
     const response = await request(app)
-      .put(`/api/order/${existingOrder._id}`)
+      .put(`/api/orders/${existingOrder._id}`)
       .send(newOrderData)
       .expect(200);
 
@@ -388,7 +388,7 @@ describe("PUT /api/order/:id", () => {
 
     Order.findByIdAndUpdate.mockResolvedValue(null);
 
-    const response = await request(app).put(`/api/order/${_id}`).expect(404);
+    const response = await request(app).put(`/api/orders/${_id}`).expect(404);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(
@@ -404,7 +404,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -419,7 +419,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -437,7 +437,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -452,7 +452,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -467,7 +467,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -485,7 +485,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -500,7 +500,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -515,7 +515,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -530,7 +530,7 @@ describe("PUT /api/order/:id", () => {
         };
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(invalidOrderData)
           .expect(400);
 
@@ -550,7 +550,7 @@ describe("PUT /api/order/:id", () => {
         Product.exists.mockResolvedValue(false);
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(mockOrderData)
           .expect(400);
 
@@ -567,7 +567,7 @@ describe("PUT /api/order/:id", () => {
         User.exists.mockResolvedValue(false);
 
         const response = await request(app)
-          .put(`/api/order/${new ObjectId().toString()}`)
+          .put(`/api/orders/${new ObjectId().toString()}`)
           .send(mockOrderData)
           .expect(400);
 
@@ -618,14 +618,14 @@ describe("DELETE /api/user/:id", () => {
     });
 
     const response = await request(app)
-      .delete(`/api/order/${existingOrder._id}`)
+      .delete(`/api/orders/${existingOrder._id}`)
       .expect(200);
 
     expect(response.body).toEqual(mockPopulateOrder);
     expect(Order.deleteOne).toHaveBeenCalledWith(mockPopulateOrder);
   });
   test("should return 400 for invalid order's ID", async () => {
-    const response = await request(app).delete("/api/order/123").expect(400);
+    const response = await request(app).delete("/api/orders/123").expect(400);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(
@@ -638,7 +638,9 @@ describe("DELETE /api/user/:id", () => {
       populate: jest.fn().mockResolvedValue(null),
     }));
 
-    const response = await request(app).delete(`/api/order/${_id}`).expect(404);
+    const response = await request(app)
+      .delete(`/api/orders/${_id}`)
+      .expect(404);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(
@@ -647,7 +649,7 @@ describe("DELETE /api/user/:id", () => {
   });
 });
 
-describe("GET /api/order/:id", () => {
+describe("GET /api/orders/:id", () => {
   test("should return 200 for successful research", async () => {
     const mockPopulateOrder = {
       _id: new ObjectId().toString(),
@@ -673,7 +675,7 @@ describe("GET /api/order/:id", () => {
     }));
 
     const response = await request(app)
-      .get(`/api/order/${mockPopulateOrder._id}`)
+      .get(`/api/orders/${mockPopulateOrder._id}`)
       .expect(200);
 
     expect(response.body).toEqual(mockPopulateOrder);
@@ -686,7 +688,7 @@ describe("GET /api/order/:id", () => {
       populate: jest.fn().mockResolvedValue(null),
     }));
 
-    const response = await request(app).get(`/api/order/${_id}`).expect(404);
+    const response = await request(app).get(`/api/orders/${_id}`).expect(404);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(
@@ -694,7 +696,7 @@ describe("GET /api/order/:id", () => {
     );
   });
   test("should return 400 for invalid ID", async () => {
-    const response = await request(app).get("/api/order/123").expect(400);
+    const response = await request(app).get("/api/orders/123").expect(400);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(

@@ -25,7 +25,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe("POST /api/product", () => {
+describe("POST /api/products", () => {
   test("should return 201 for create a new product", async () => {
     const productData = {
       name: "product",
@@ -37,7 +37,7 @@ describe("POST /api/product", () => {
     });
 
     const response = await request(app)
-      .post("/api/product")
+      .post("/api/products")
       .send(productData)
       .expect(201);
 
@@ -60,7 +60,7 @@ describe("POST /api/product", () => {
     Product.create.mockRejectedValueOnce({ code: 11000 });
 
     const response = await request(app)
-      .post("/api/product")
+      .post("/api/products")
       .send(productData)
       .expect(409);
 
@@ -77,7 +77,7 @@ describe("POST /api/product", () => {
       };
 
       const response = await request(app)
-        .post("/api/product")
+        .post("/api/products")
         .send(invalidProductData)
         .expect(400);
 
@@ -92,7 +92,7 @@ describe("POST /api/product", () => {
       };
 
       const response = await request(app)
-        .post("/api/product")
+        .post("/api/products")
         .send(invalidProductData)
         .expect(400);
 
@@ -105,7 +105,7 @@ describe("POST /api/product", () => {
       const invalidProductData = {};
 
       const response = await request(app)
-        .post("/api/product")
+        .post("/api/products")
         .send(invalidProductData)
         .expect(400);
 
@@ -119,7 +119,7 @@ describe("POST /api/product", () => {
       };
 
       const response = await request(app)
-        .post("/api/product")
+        .post("/api/products")
         .send(invalidProductData)
         .expect(400);
 
@@ -131,7 +131,7 @@ describe("POST /api/product", () => {
   });
 });
 
-describe("PUT /api/product/:id", () => {
+describe("PUT /api/products/:id", () => {
   test("should return 200 for successful update", async () => {
     const existingProduct = {
       _id: new ObjectId().toString(),
@@ -148,7 +148,7 @@ describe("PUT /api/product/:id", () => {
     });
 
     const response = await request(app)
-      .put(`/api/product/${existingProduct._id}`)
+      .put(`/api/products/${existingProduct._id}`)
       .send(newProductData)
       .expect(200);
 
@@ -168,7 +168,7 @@ describe("PUT /api/product/:id", () => {
     Product.findByIdAndUpdate.mockResolvedValue(null);
 
     const response = await request(app)
-      .put(`/api/product/${_id}`)
+      .put(`/api/products/${_id}`)
       .send(updateData)
       .expect(404);
 
@@ -191,7 +191,7 @@ describe("PUT /api/product/:id", () => {
     };
 
     const response = await request(app)
-      .put(`/api/product/${new ObjectId().toString()}`)
+      .put(`/api/products/${new ObjectId().toString()}`)
       .send(updatedProduct)
       .expect(409);
 
@@ -207,7 +207,7 @@ describe("PUT /api/product/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/product/${new ObjectId().toString()}`)
+        .put(`/api/products/${new ObjectId().toString()}`)
         .send(invalidProductData)
         .expect(400);
 
@@ -222,7 +222,7 @@ describe("PUT /api/product/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/product/${new ObjectId().toString()}`)
+        .put(`/api/products/${new ObjectId().toString()}`)
         .send(invalidProductData)
         .expect(400);
 
@@ -235,7 +235,7 @@ describe("PUT /api/product/:id", () => {
       const invalidProductData = {};
 
       const response = await request(app)
-        .put(`/api/product/${new ObjectId().toString()}`)
+        .put(`/api/products/${new ObjectId().toString()}`)
         .send(invalidProductData)
         .expect(400);
 
@@ -249,7 +249,7 @@ describe("PUT /api/product/:id", () => {
       };
 
       const response = await request(app)
-        .put(`/api/product/${new ObjectId().toString()}`)
+        .put(`/api/products/${new ObjectId().toString()}`)
         .send(invalidProductData)
         .expect(400);
 
@@ -259,7 +259,7 @@ describe("PUT /api/product/:id", () => {
       );
     });
     test("should return 400 for invalid ID", async () => {
-      const response = await request(app).put("/api/product/123").expect(400);
+      const response = await request(app).put("/api/products/123").expect(400);
 
       expect(response.body.errorMessage).toBeTruthy();
       expect(response.body.errorMessage).toContain(
@@ -269,13 +269,13 @@ describe("PUT /api/product/:id", () => {
   });
 });
 
-describe("DELETE /api/product/:id", () => {
+describe("DELETE /api/products/:id", () => {
   test("should return 404 for non-existing product", async () => {
     const _id = new ObjectId().toString();
     Product.findByIdAndDelete.mockResolvedValue(null);
 
     const response = await request(app)
-      .delete(`/api/product/${_id}`)
+      .delete(`/api/products/${_id}`)
       .expect(404);
 
     expect(response.body.errorMessage).toBeTruthy();
@@ -293,13 +293,13 @@ describe("DELETE /api/product/:id", () => {
     Product.findByIdAndDelete.mockResolvedValue(existingProduct);
 
     const response = await request(app)
-      .delete(`/api/product/${existingProduct._id}`)
+      .delete(`/api/products/${existingProduct._id}`)
       .expect(200);
 
     expect(response.body.name).toBe(existingProduct.name);
   });
   test("should return 400 for invalid ID", async () => {
-    const response = await request(app).delete("/api/product/123").expect(400);
+    const response = await request(app).delete("/api/products/123").expect(400);
 
     expect(response.body.errorMessage).toBeTruthy();
     expect(response.body.errorMessage).toContain(
